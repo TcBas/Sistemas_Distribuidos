@@ -1,0 +1,97 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}  % Codificación UTF-8
+\usepackage{graphicx}        % Paquete para insertar imágenes
+\usepackage{amsmath}         % Paquete para símbolos matemáticos
+\usepackage{authblk}         % Paquete para gestionar autores
+\usepackage{setspace}        % Para establecer el interlineado
+\usepackage{geometry}        % Para ajustar márgenes
+\geometry{margin=1in}
+
+\usepackage[backend=biber,style=apa]{biblatex} % Cargar el paquete biblatex
+\addbibresource{ref1.bib} % Cargar el archivo de referencias
+
+\title{Análisis de Prueba de Estrés en Sistemas Informáticos}
+
+\author[1]{Sebastian Alberto Tapia Tito}
+\author[2]{Gilmar Gutierrez Flores}
+\affil[1]{Universidad Nacional del Altiplano}
+
+\date{Octubre 2024}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The transition from an error-prone, slower, and extremely high-volume legacy system like monolithic system to a faster, lighter, and error-free microservices based system is not always so simple.\parencite{Aggarwal2024854}
+
+The execution of stress testing analysis forms a fundamental strategy in the field of software engineering and computational systems, used to assess the stability, reliability, and maximum operational limits of a system when subjected to extreme load conditions. This article will provide an overview of its objectives, types, and opportunities, highlighting the importance of conducting these tests for the creation of robust systems.
+
+\end{abstract}
+
+\section{Introducción}
+Los sistemas informáticos, ya sean aplicaciones web o infraestructura empresarial, deben poder soportar diversas tensiones en situaciones del mundo real. Las pruebas de estrés simulan situaciones en las que el sistema se ve sometido a cargas que superan los umbrales de uso, con el objetivo de detectar posibles errores o cuellos de botella. El objetivo es garantizar que el sistema pueda utilizarse en periodos de intenso tráfico o alta demanda, con un mínimo de controles y restricciones.
+\section{Objetivos de las pruebas de estrés}
+Los principales objetivos de las pruebas de estrés son:.
+\begin{itemize}
+    \item \textbf{Mostrar límites de trabajos}: Define los límites de rendimiento del programa según la cantidad de usuarios o trabajos.
+    \item \textbf{Análisis de condición}: Analizar cómo se comporta un sistema bajo carga excesiva.
+    \item \textbf {Identificar brechas}: Encuentre componentes críticos que no soportan suficiente carga y pueden requerir optimización o dimensionamiento.
+    \item \textbf{Ver pruebas fallidas}: Asegúrese de que las fallas del sistema estén planificadas y no puedan causar efectos dañinos o pérdida de datos críticos.
+\end{itemize}
+
+\section{Tipos de pruebas de estrés}
+Hay varios tipos de pruebas de estrés, cada uno diseñado para evaluar diferentes aspectos del sistema.
+\begin{itemize}
+    \item \textbf{Prueba de Carga Máxima}: Mide la carga mínima a máxima. Carga esperada o excedida.
+    \item \textbf{Prueba a largo plazo}: evalúa el comportamiento del sistema bajo una carga sostenida durante un largo tiempo.
+    \item \textbf{Prueba de sobretensión}: mide los aumentos repentinos de tráfico para ver qué tan rápido se adapta el sistema a estos cambios.
+    \item \textbf{Pruebas de estrés distribuidas}: Un análisis integral del comportamiento del sistema mediante la integración de múltiples componentes en una arquitectura distribuida.
+\end{itemize}.
+
+\section{Herramientas de pruebas de estrés}
+Una de las herramientas utilizadas para las pruebas de estrés es:
+\begin{itemize}
+\item \textbf{JMeter}: Varias pruebas de estrés de plataforma y carga de bases de datos y aplicaciones web. Capítulo
+\item \textbf{LoadRunner}: Herramienta para pruebas de carga y rendimiento.
+\item \textbf{Gadling}: Una solución moderna para aplicaciones web capaces de realizar simulaciones avanzadas.
+\end{itemize}.
+
+\section{Beneficios}
+El análisis de pruebas de estrés tiene muchos beneficios:
+\begin{itemize}
+\item \textbf{Resiliencia mejorada}: El sistema es más capaz de responder a cargas inesperadas al encontrar y corregir deficiencias.
+\item \textbf{Mayor confiabilidad}: Exponer los sistemas a condiciones adversas les ayuda a funcionar correctamente en situaciones críticas.
+\item \textbf{Usar optimización de recursos}: Estas pruebas pueden revelar puntos débiles y permitirle ajustar su código o componentes para mejorar la escalabilidad.
+\end{itemize}.
+
+
+\section{Conclusión}
+
+Las pruebas de estrés son una parte importante del ciclo de desarrollo de software, ya que garantizan que el sistema pueda sobrevivir a los peores escenarios. La detección temprana de problemas de rendimiento permite a los desarrolladores de software y administradores de sistemas mejorar los sistemas operativos en términos de experiencia del usuario final y también mejorar la estabilidad de los entornos de producción. Las pruebas de estrés realizadas con herramientas probadas aumentan la confiabilidad y estabilidad del software. Este es un hecho importante a considerar si se imponen altas exigencias al sistema en cuestión.
+.
+
+
+
+\newpage
+
+\printbibliography
+
+\cite{Aggarwal2024854}
+\cite{AguilarCastro1997203}
+\cite{Azketa2021113}
+\cite{Caram2012119}
+\cite{Castro2007170}
+\cite{Dzulkifly2025178}
+\cite{Gómez-Baryolo2017}
+\cite{Huang2024853}
+\cite{Martínez2021343}
+\cite{Rao20241026}
+\cite{Saini2024}
+\cite{Xavier2025276}
+\cite{Zou2024}
+\cite{Li20241827}
+\cite{Terencio2023154}
+
+\end{document}

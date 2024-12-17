@@ -1,0 +1,35 @@
+version: "3.9"
+services:
+  coordinator:
+    build:
+      context: ./coordinator
+    container_name: coordinator
+    networks:
+      - syncnet
+    ports:
+      - "5000:5000"
+  
+  node1:
+    build:
+      context: ./node
+    container_name: node1
+    networks:
+      - syncnet
+  
+  node2:
+    build:
+      context: ./node
+    container_name: node2
+    networks:
+      - syncnet
+
+  node3:
+    build:
+      context: ./node
+    container_name: node3
+    networks:
+      - syncnet
+
+networks:
+  syncnet:
+    driver: bridge

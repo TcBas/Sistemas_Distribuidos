@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  process_1:
+    build: .
+    command: python lamport_clock.py 1 process_2 5002  # Proceso 1 enviará mensaje a Proceso 2 en el puerto 5002
+    networks:
+      - lamport_net
+
+  process_2:
+    build: .
+    command: python lamport_clock.py 2 process_3 5003  # Proceso 2 enviará mensaje a Proceso 3 en el puerto 5003
+    ports:
+      - "5002:5002"  # Expone el puerto 5002 para que el Proceso 1 pueda enviar mensajes a él
+    networks:
+      - lamport_net
+
+  process_3:
+    build: .
+    command: python lamport_clock.py 3 process_1 5001
+    networks:
+      - lamport_net
+
+networks:
+  lamport_net:
+    driver: bridge

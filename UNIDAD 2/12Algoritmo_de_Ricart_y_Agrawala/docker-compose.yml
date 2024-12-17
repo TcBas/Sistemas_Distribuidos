@@ -1,0 +1,68 @@
+version: "3"
+services:
+  coordinator:
+    build: ./coordinator
+    container_name: coordinator
+    ports:
+      - "5000:5000"
+    networks:
+      - centralized-network
+
+  process-1:
+    build: ./process
+    container_name: process-1
+    depends_on:
+      - coordinator
+    environment:
+      - PROCESS_ID=1
+      - COORDINATOR_URL=http://coordinator:5000
+    networks:
+      - centralized-network
+
+  process-2:
+    build: ./process
+    container_name: process-2
+    depends_on:
+      - coordinator
+    environment:
+      - PROCESS_ID=2
+      - COORDINATOR_URL=http://coordinator:5000
+    networks:
+      - centralized-network
+
+  process-3:
+    build: ./process
+    container_name: process-3
+    depends_on:
+      - coordinator
+    environment:
+      - PROCESS_ID=3
+      - COORDINATOR_URL=http://coordinator:5000
+    networks:
+      - centralized-network
+
+  process-4:
+    build: ./process
+    container_name: process-4
+    depends_on:
+      - coordinator
+    environment:
+      - PROCESS_ID=4
+      - COORDINATOR_URL=http://coordinator:5000
+    networks:
+      - centralized-network
+
+  process-5:
+    build: ./process
+    container_name: process-5
+    depends_on:
+      - coordinator
+    environment:
+      - PROCESS_ID=5
+      - COORDINATOR_URL=http://coordinator:5000
+    networks:
+      - centralized-network
+
+networks:
+  centralized-network:
+    driver: bridge

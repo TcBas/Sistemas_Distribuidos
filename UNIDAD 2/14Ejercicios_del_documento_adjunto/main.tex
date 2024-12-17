@@ -1,0 +1,92 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{\textbf{Transacciones Distribuidas en Sistemas Distribuidos}}
+\author{Sebastian Alberto Tapia Tito}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Introducción}
+En los sistemas distribuidos, las transacciones distribuidas son fundamentales para mantener la integridad y consistencia de los datos en entornos donde múltiples nodos trabajan de manera cooperativa. Estas transacciones actúan como unidades indivisibles que deben cumplir con propiedades específicas para garantizar el correcto funcionamiento del sistema, incluso ante fallas o problemas de concurrencia.  
+Este trabajo analiza las características, modelos, problemas y soluciones asociadas con las transacciones distribuidas, basándose en el capítulo 6 del material proporcionado.
+
+\section{Propiedades ACID}
+Las transacciones distribuidas están regidas por las propiedades ACID, esenciales para garantizar la confiabilidad y consistencia en un sistema distribuido:
+\begin{itemize}
+    \item \textbf{Atomicidad:} La transacción debe ejecutarse en su totalidad o no ejecutarse en absoluto. Por ejemplo, al transferir dinero entre cuentas bancarias, si el débito de una cuenta falla, el crédito en la otra no debe realizarse.
+    \item \textbf{Consistencia:} El sistema debe pasar de un estado válido a otro, respetando todas las reglas de integridad. Esto asegura que no se viole ninguna restricción de la base de datos.
+    \item \textbf{Aislamiento:} Los cambios intermedios de una transacción no son visibles para otras. Por ejemplo, si una transacción modifica un registro, las demás deben esperar hasta que finalice para acceder a los datos.
+    \item \textbf{Durabilidad:} Una vez que la transacción se completa, los cambios son permanentes, incluso en caso de fallas del sistema, como un apagón o una pérdida de conexión.
+\end{itemize}
+
+\section{Problemas de concurrencia}
+La concurrencia puede generar conflictos entre transacciones simultáneas. Los problemas más comunes incluyen:
+\begin{itemize}
+    \item \textbf{Modificaciones perdidas:} Ocurren cuando varias transacciones sobrescriben los mismos datos sin coordinación.  
+    \item \textbf{Lecturas inconsistentes:} Una transacción lee datos modificados por otra antes de que esta haya sido confirmada.
+    \item \textbf{Bloqueos:} Dos transacciones intentan acceder simultáneamente a los mismos recursos y se bloquean mutuamente.
+\end{itemize}
+La solución más común es implementar un mecanismo de control de concurrencia, como bloqueos o versiones múltiples.
+
+\section{Recuperación de transacciones}
+La recuperación asegura que el sistema vuelva a un estado consistente tras una falla. Los problemas frecuentes son:
+\begin{itemize}
+    \item \textbf{Lecturas sucias:} Una transacción exitosa lee datos afectados por una transacción que luego se aborta.
+    \item \textbf{Cascada de abortos:} Una transacción aborta, obligando a revertir otras transacciones dependientes.
+    \item \textbf{Escrituras prematuras:} Varias transacciones escriben sobre los mismos datos simultáneamente, generando conflictos.
+\end{itemize}
+Se emplean bitácoras de escritura anticipada para registrar todos los cambios antes de aplicarlos definitivamente.
+
+\section{Transacciones anidadas y distribuidas}
+\subsection{Transacciones anidadas}
+Permiten subdividir una transacción en subtareas más pequeñas. Estas son útiles para:
+\begin{itemize}
+    \item Especificar diferentes niveles de prioridad entre las operaciones.
+    \item Mejorar la recuperación, ya que solo se necesita revertir las subtransacciones fallidas.
+    \item Manejar transacciones complejas de manera jerárquica.
+\end{itemize}
+\textbf{Ejemplo:}  
+En un sistema de gestión de inventario, una transacción principal verifica el inventario global, mientras que las subtransacciones actualizan el inventario de cada almacén.
+
+\subsection{Transacciones distribuidas}
+Involucran múltiples nodos o servidores. Un coordinador controla la ejecución y asegura que todas las subtransacciones se completen correctamente.  
+\textbf{Ejemplo:}  
+Un sistema de reservaciones en línea coordina un vuelo, un hotel y el alquiler de un automóvil, asegurándose de que todos los servicios estén disponibles antes de confirmar la transacción.
+
+\section{Modelos de replicación}
+La replicación permite mejorar la disponibilidad y confiabilidad de los datos. Existen tres modelos principales:
+\begin{itemize}
+    \item \textbf{Asíncrono:} Cada réplica procesa peticiones localmente, sin coordinación inmediata con otras.
+    \item \textbf{Síncrono:} Todas las réplicas procesan las modificaciones en el mismo orden.
+    \item \textbf{Mixto:} Combina elementos de los modelos anteriores según las necesidades.
+\end{itemize}
+
+\section{Problemas de deadlock}
+El \textit{deadlock} ocurre cuando dos o más transacciones esperan indefinidamente por recursos que están bloqueados entre sí.  
+\textbf{Estrategias de manejo:}
+\begin{itemize}
+    \item \textbf{Detección:} Permitir el \textit{deadlock} y luego resolverlo al identificar los procesos bloqueados.
+    \item \textbf{Prevención:} Diseñar reglas para evitar que el \textit{deadlock} ocurra.
+    \item \textbf{Evasión:} Asignar recursos de manera cuidadosa para evitar conflictos.
+\end{itemize}
+
+\section{Servicios web}
+Los servicios web proporcionan interoperabilidad entre sistemas distribuidos mediante el uso de estándares abiertos como XML, SOAP y WSDL.  
+\textbf{Ejemplo:}  
+Un agente de viajes en línea utiliza servicios web para coordinar reservaciones de vuelos, hoteles y autos, proporcionando una solución integral al usuario.
+
+\section{Conclusión}
+Las transacciones distribuidas son esenciales para mantener la integridad y consistencia en sistemas distribuidos. Su correcto diseño e implementación son clave para garantizar la confiabilidad de las aplicaciones modernas.
+
+\end{document}

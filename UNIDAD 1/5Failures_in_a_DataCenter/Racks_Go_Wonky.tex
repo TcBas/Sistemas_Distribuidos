@@ -1,0 +1,111 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+% Tema y colores personalizados
+\usetheme{Madrid}
+\usecolortheme{whale}
+
+% Colores personalizados
+\definecolor{mycolor}{RGB}{0, 128, 128} % Color personalizado para títulos
+\setbeamercolor{title}{fg=white, bg=mycolor}  
+\setbeamercolor{frametitle}{fg=white, bg=mycolor}  
+\setbeamercolor{block title}{bg=mycolor, fg=white} 
+\setbeamercolor{block body}{bg=gray!15} 
+\setbeamercolor{structure}{fg=mycolor}  
+\setbeamercolor{footline}{fg=white, bg=mycolor}
+
+% Pie de página personalizado
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.8\paperwidth,ht=2.25ex,dp=1ex,leftskip=3mm]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.25ex,dp=1ex,rightskip=3mm]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate\hfill\insertframenumber/\inserttotalframenumber
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+% Información de título
+\title[Racks Go Wonky]{Racks Go Wonky}
+\author{Sebastian A. Tapia T. \and Gilmar Gutierrez Flores}
+\institute{Escuela Profesional de Ingeniería Estadística e Informática\\Universidad Nacional del Altiplano}
+\date{\today}
+
+\begin{document}
+
+% Portada
+\begin{frame}
+    \titlepage
+\end{frame}
+
+
+
+
+
+% Diapositiva: ¿Qué significa "Racks Go Wonky"?
+\section{Racks Go Wonky}
+\begin{frame}{¿Qué significa "Racks Go Wonky"?}
+    \begin{block}{Definición}
+        La frase \textbf{"Racks Go Wonky"} indica que un grupo de servidores conectados en un rack empieza a experimentar fallos significativos, principalmente en la \textbf{conectividad de red}.
+    \end{block}
+    \begin{exampleblock}{Impacto}
+        Esto se refiere a una \textbf{pérdida del 50\% de los paquetes}, afectando la eficiencia del tráfico de datos.
+    \end{exampleblock}
+\end{frame}
+
+% Diapositiva: Pérdida de Paquetes
+\section{Pérdida de Paquetes}
+\begin{frame}{Pérdida de Paquetes}
+    \textbf{¿Qué es la pérdida de paquetes?}
+    \begin{itemize}
+        \item Los datos en red se dividen en pequeñas unidades llamadas \textbf{paquetes}.
+        \item La \textbf{pérdida de paquetes} ocurre cuando algunos no llegan a su destino.
+        \item Esto puede causar errores o tiempos de espera prolongados en las aplicaciones.
+    \end{itemize}
+\end{frame}
+
+% Diapositiva: Causas de la Pérdida de Paquetes
+\section{Causas de Pérdida de Paquetes}
+\begin{frame}{Causas de la Pérdida de Paquetes}
+    \begin{block}{Posibles Razones}
+        Algunas de las causas de la pérdida de paquetes incluyen:
+    \end{block}
+    \begin{itemize}
+        \item Problemas de cableado en el rack.
+        \item Fallos en los switches de red del rack.
+        \item Configuraciones de red defectuosas.
+        \item Interferencias físicas o eléctricas.
+        \item Sobrecarga de tráfico en la red.
+    \end{itemize}
+\end{frame}
+
+% Diapositiva: Impacto de la Pérdida del 50% de Paquetes
+\section{Impacto de la Pérdida de Paquetes}
+\begin{frame}{Impacto de la Pérdida del 50\% de Paquetes}
+    \begin{block}{Reducción de Rendimiento}
+        Perder el 50\% de los paquetes significa que la mitad de los datos no completan el ciclo de transmisión.
+    \end{block}
+    \begin{itemize}
+        \item \textbf{Reducción de rendimiento}: Latencias o fallos en las conexiones.
+        \item \textbf{Reenvío de paquetes}: Aumenta la latencia y reduce el ancho de banda.
+        \item \textbf{Inestabilidad del servicio}: Servicios en el rack pueden fallar intermitentemente.
+    \end{itemize}
+\end{frame}
+
+% Diapositiva: Posibles Soluciones
+\section{Soluciones}
+\begin{frame}{Posibles Soluciones}
+    \begin{block}{Soluciones Principales}
+        \begin{itemize}
+            \item \textbf{Diagnóstico de red}: Monitoreo para identificar el problema.
+            \item \textbf{Reparación o sustitución de hardware}: Reemplazar piezas afectadas.
+            \item \textbf{Balanceo de carga}: Reducir la sobrecarga distribuyendo tráfico.
+            \item \textbf{Reconfiguración}: Ajustar la configuración para evitar errores.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\end{document}

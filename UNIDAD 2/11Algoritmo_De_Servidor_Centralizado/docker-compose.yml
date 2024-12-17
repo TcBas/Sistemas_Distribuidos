@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  coordinator:
+    build:
+      context: ./coordinator
+    container_name: coordinator
+    ports:
+      - "5000:5000"
+
+  process-1:
+    build:
+      context: ./process
+    container_name: process-1
+    command: python process.py P1 http://coordinator:5000
+    depends_on:
+      - coordinator
+
+  process-2:
+    build:
+      context: ./process
+    container_name: process-2
+    command: python process.py P2 http://coordinator:5000
+    depends_on:
+      - coordinator
+
+  process-3:
+    build:
+      context: ./process
+    container_name: process-3
+    command: python process.py P3 http://coordinator:5000
+    depends_on:
+      - coordinator
+
+  process-4:
+    build:
+      context: ./process
+    container_name: process-4
+    command: python process.py P4 http://coordinator:5000
+    depends_on:
+      - coordinator
+
+  process-5:
+    build:
+      context: ./process
+    container_name: process-5
+    command: python process.py P5 http://coordinator:5000
+    depends_on:
+      - coordinator
